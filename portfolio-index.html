@@ -3,8 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
-<title>Justin Harvey &mdash; Product Owner &amp; Builder</title>
+<title>Justin Harvey | Product Owner &amp; Builder | Portland, Maine</title>
 <meta name="description" content="Justin Harvey. Product Owner and builder. Portland, Maine.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Justin Harvey | Product Owner & Builder | Portland, Maine">
+<meta property="og:description" content="Justin Harvey. Product Owner and builder. Portland, Maine. Web development, automation, and product advisory.">
+<meta property="og:url" content="https://justin-portfolio-netlify.netlify.app">
+<meta property="og:image" content="https://justin-portfolio-netlify.netlify.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Justin Harvey | Product Owner & Builder | Portland, Maine">
+<meta name="twitter:description" content="Justin Harvey. Product Owner and builder in Portland, Maine.">
+<meta name="twitter:image" content="https://justin-portfolio-netlify.netlify.app/og-image.png">
+<link rel="canonical" href="https://justin-portfolio-netlify.netlify.app">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -17,7 +27,7 @@
   --blue:    #38b6ff;
   --bhi:     #70cbff;
   --white:   #eef2f8;
-  --muted:   rgba(238,242,248,0.45);
+  --muted:   rgba(238,242,248,0.65);
   --bdr:     rgba(56,182,255,0.09);
   --bdrh:    rgba(56,182,255,0.28);
   --glow:    rgba(56,182,255,0.10);
@@ -48,7 +58,7 @@ a{color:inherit;text-decoration:none}
 .nav-a:hover{color:var(--white)}
 .nav-cta{color:var(--blue);border:1px solid var(--bdrh);padding:.4rem .9rem;border-radius:3px;transition:all .2s}
 .nav-cta:hover{background:var(--glow)}
-.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
 .burger span{display:block;width:22px;height:1.5px;background:var(--white);transition:all .3s var(--spring);transform-origin:center}
 .burger.open span:first-child{transform:translateY(6.5px) rotate(45deg)}
 .burger.open span:last-child{transform:translateY(-6.5px) rotate(-45deg)}
@@ -173,9 +183,55 @@ a{color:inherit;text-decoration:none}
   *,*::before,*::after{animation:none !important;transition-duration:.01ms !important}
   .r{opacity:1;transform:none}
 }
+/* Focus indicators for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--blue);
+  color: var(--bg);
+  padding: .5rem 1rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: .8rem;
+  font-weight: 600;
+  z-index: 10000;
+  border-radius: 0 0 4px 4px;
+  transition: top .2s;
+}
+.skip-link:focus { top: 0; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Justin Harvey",
+  "jobTitle": "Product Owner & Builder",
+  "description": "Product Owner and builder based in Portland, Maine. Specializing in web development, automation, and product advisory.",
+  "url": "https://justin-portfolio-netlify.netlify.app",
+  "sameAs": [
+    "https://www.linkedin.com/in/justin-harvey-cspo/"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Portland",
+    "addressRegion": "ME",
+    "addressCountry": "US"
+  },
+  "knowsAbout": ["Product Ownership", "Web Development", "Automation", "AI Integration", "Scrum"]
+}
+</script>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <div id="cur"></div>
 <div id="cur-ring"></div>
 
@@ -192,7 +248,7 @@ a{color:inherit;text-decoration:none}
     <span></span><span></span>
   </button>
 </header>
-<div class="drawer" id="drawer">
+<div class="drawer" id="drawer" role="navigation" aria-label="Mobile navigation">
   <a href="#projects">Projects</a>
   <a href="#background">Background</a>
   <a href="#tools">Tools</a>
@@ -201,14 +257,14 @@ a{color:inherit;text-decoration:none}
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <canvas id="cv"></canvas>
+  <canvas id="cv" aria-hidden="true"></canvas>
   <div class="scanlines"></div>
   <div id="spt"></div>
   <div class="hero-fade"></div>
-  <div class="hero-body">
+  <div class="hero-body" id="main-content">
     <div class="badge">
       <span class="dot"></span>
-      Product Owner &amp; Builder &mdash; Portland, Maine
+      Product Owner &amp; Builder | Portland, Maine
     </div>
     <h1 class="hero-name">
       <span class="grad">Justin</span><br>Harvey
@@ -240,7 +296,7 @@ a{color:inherit;text-decoration:none}
       <div class="p-blocks">
         <div class="p-block">
           <h3>The Problem</h3>
-          <p>Government tax payments rely on batch-based or reversible payment rails &mdash; leading to settlement delays, reconciliation complexity, and operational risk for both payers and treasuries.</p>
+          <p>Government tax payments rely on batch-based or reversible payment rails, leading to settlement delays, reconciliation complexity, and operational risk for both payers and treasuries.</p>
         </div>
         <div class="p-block">
           <h3>The Solution</h3>
@@ -256,7 +312,7 @@ a{color:inherit;text-decoration:none}
           <p>Faster, safer government revenue collection while preserving regulatory compliance, auditability, and compatibility with current financial systems.</p>
         </div>
       </div>
-      <p class="p-status">Provisional patent filed &mdash; details available upon request.</p>
+      <p class="p-status">Provisional patent filed. Details available upon request.</p>
     </div>
   </div>
 </section>
@@ -269,7 +325,7 @@ a{color:inherit;text-decoration:none}
     <p class="sec-sub r d2">Product development, client sites, and tools</p>
     <div class="grid2 r d3">
       <div class="card span2">
-        <span class="c-tag">Client Work &mdash; Featured</span>
+        <span class="c-tag">Client Work | Featured</span>
         <h3 class="c-title"><a href="https://secondmountaininternalmedicine.com" target="_blank" rel="noopener">Second Mountain Internal Medicine</a></h3>
         <p class="c-desc">Professional healthcare website for a home-based primary care practice serving homebound seniors in Maine. WCAG 2.1 accessible, mobile-first, with HIPAA-ready contact forms.</p>
         <div class="c-links"><a href="https://secondmountaininternalmedicine.com" class="c-link" target="_blank" rel="noopener">View live site &#8594;</a></div>
@@ -357,9 +413,9 @@ a{color:inherit;text-decoration:none}
     <div class="exp-list r d3">
       <div class="exp">
         <p class="exp-org">Tyler Technologies</p>
-        <p class="exp-role">Product Owner &mdash; Enterprise Software</p>
+        <p class="exp-role">Product Owner | Enterprise Software</p>
         <div class="exp-desc">
-          <p>Led data consolidation, financial analytics, and operational streamlining &mdash; saving significant costs and improving efficiency across the organisation.</p>
+          <p>Led data consolidation, financial analytics, and operational streamlining, saving significant costs and improving efficiency across the organisation.</p>
           <ul>
             <li>Automated smoke tests using Selenium with error handling and image capture on failure</li>
             <li>CRM system for batching sales trips by analysing client service usage within geographic radius</li>
@@ -369,7 +425,7 @@ a{color:inherit;text-decoration:none}
       </div>
       <div class="exp">
         <p class="exp-org">45th Parallel Risk Management</p>
-        <p class="exp-role">Founder &mdash; Security Training</p>
+        <p class="exp-role">Founder | Security Training</p>
         <div class="exp-desc">Founded and led security training programs, developing sales strategies for businesses of all sizes. Built from the ground up.</div>
       </div>
       <div class="exp">
@@ -406,7 +462,7 @@ a{color:inherit;text-decoration:none}
       <a href="#tools">Tools</a>
       <a href="https://g00dtech.netlify.app" target="_blank" rel="noopener">G00Dtech</a>
     </nav>
-    <span class="foot-copy">Built with curiosity &mdash; Portland, Maine</span>
+    <span class="foot-copy">Built with curiosity, Portland, Maine</span>
   </div>
 </footer>
 
