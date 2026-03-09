@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+<title>GoodTech — There's a bright future, with your PALLS.</title>
+<meta name="description" content="P.A.L.L.S — Product Analyst Language Learning Syntax. AI-powered backlog prioritization and JIRA story generation."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- ══ NAV ══════════════════════════════════════════ -->
+<header class="nav" id="nav">
+  <a href="#" class="nav-logo">G<span class="nz">00</span>D<span class="ndim">tech</span></a>
+  <nav class="nav-links">
+    <a href="#palls"   class="nav-link">P.A.L.L.S</a>
+    <a href="#configs" class="nav-link">Configs</a>
+    <a href="#ethics"  class="nav-link">Ethics</a>
+    <a href="#contact" class="nav-link nav-cta">Let's talk</a>
+  </nav>
+  <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <a href="#palls"   class="drawer-link">P.A.L.L.S</a>
+  <a href="#configs" class="drawer-link">Configs</a>
+  <a href="#ethics"  class="drawer-link">Ethics</a>
+  <a href="#contact" class="drawer-link">Contact</a>
+</div>
+
+<!-- ══ HERO ═════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
+  <div class="hero-grid"  aria-hidden="true"></div>
+  <div class="hero-scan"  aria-hidden="true"></div>
+  <div id="spotlight"     aria-hidden="true"></div>
+  <div id="ripple-stage"  aria-hidden="true"></div>
+  <div class="hero-fade"  aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge" data-reveal>
+      <span class="badge-dot"></span>
+      AI-Powered · Product Intelligence
+    </div>
+    <h1 class="hero-hl" data-reveal data-d="1">
+      <span class="grad">P.A.L.L.S</span>
+    </h1>
+    <p class="hero-expand" data-reveal data-d="2">Product Analyst Language Learning Syntax</p>
+    <p class="hero-sub" data-reveal data-d="3">
+      An AI model that transforms your backlog — prioritising by severity and impact,
+      then writing JIRA stories with actionable acceptance criteria.
+    </p>
+    <div class="hero-actions" data-reveal data-d="4">
+      <a href="#configs" class="btn btn-primary">Explore configs</a>
+      <a href="#palls"   class="btn btn-ghost">Learn more</a>
+    </div>
+  </div>
+
+  <div class="hero-coords" aria-hidden="true">
+    <span id="cx">x: 0000</span>
+    <span id="cy">y: 0000</span>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══ TICKER ═══════════════════════════════════════ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="ticker-track">
+    <span>Backlog Prioritisation</span><span class="tsep">✦</span>
+    <span>JIRA Story Generation</span><span class="tsep">✦</span>
+    <span>Severity Scoring</span><span class="tsep">✦</span>
+    <span>Impact Mapping</span><span class="tsep">✦</span>
+    <span>AI Ethics</span><span class="tsep">✦</span>
+    <span>Subject Matter Expert</span><span class="tsep">✦</span>
+    <span>Product Analysis</span><span class="tsep">✦</span>
+    <span>Client Support Intelligence</span><span class="tsep">✦</span>
+    <!-- duplicate for seamless loop -->
+    <span>Backlog Prioritisation</span><span class="tsep">✦</span>
+    <span>JIRA Story Generation</span><span class="tsep">✦</span>
+    <span>Severity Scoring</span><span class="tsep">✦</span>
+    <span>Impact Mapping</span><span class="tsep">✦</span>
+    <span>AI Ethics</span><span class="tsep">✦</span>
+    <span>Subject Matter Expert</span><span class="tsep">✦</span>
+    <span>Product Analysis</span><span class="tsep">✦</span>
+    <span>Client Support Intelligence</span><span class="tsep">✦</span>
+  </div>
+</div>
+
+<!-- ══ PALLS ═════════════════════════════════════════ -->
+<section class="prose-section" id="palls">
+  <div class="container">
+    <div class="prose-inner">
+      <div class="prose-sticky">
+        <p class="sec-label" data-reveal>01 / What is PALLS?</p>
+        <h2 class="sec-title" data-reveal data-d="1">Your backlog,<br/><em>finally tamed.</em></h2>
+        <p class="body-text" data-reveal data-d="2" style="font-size:.85rem">
+          Built at GoodTech for teams tired of sprint planning theatre and backlog debt that never shrinks.
+        </p>
+      </div>
+      <div>
+        <p class="body-text" data-reveal>
+          <strong style="color:var(--white)">PALLS</strong> is the Product Analyst Language Learning Syntax —
+          an AI model purpose-built for the software development lifecycle.
+        </p>
+        <p class="body-text" data-reveal data-d="1">
+          It cuts through backlog noise, scoring every item by severity and business impact so your team always
+          works on what matters most. Then it generates fully-formed JIRA stories with clear acceptance criteria
+          your engineers can ship from — no follow-up meetings required.
+        </p>
+        <div class="features" data-reveal data-d="2">
+          <div class="feature">
+            <svg class="feat-icon" viewBox="0 0 32 32" fill="none">
+              <rect x="4" y="6"  width="24" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/>
+              <rect x="4" y="14" width="16" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/>
+              <rect x="4" y="22" width="20" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            <div>
+              <p class="feat-title">Backlog Prioritisation</p>
+              <p class="feat-desc">Ranks every item by severity and business impact — automatically, without the spreadsheet gymnastics.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <svg class="feat-icon" viewBox="0 0 32 32" fill="none">
+              <rect x="4" y="4" width="24" height="24" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="10" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="10" y1="17" x2="18" y2="17" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="10" y1="22" x2="20" y2="22" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            <div>
+              <p class="feat-title">JIRA Story Generation</p>
+              <p class="feat-desc">Complete stories with acceptance criteria your engineers can ship from — no follow-up meetings required.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <svg class="feat-icon" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="16" cy="16" r="4"  stroke="currentColor" stroke-width="1.5"/>
+              <line x1="16" y1="4"  x2="16" y2="9"  stroke="currentColor" stroke-width="1.5"/>
+              <line x1="16" y1="23" x2="16" y2="28" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="4"  y1="16" x2="9"  y2="16" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="23" y1="16" x2="28" y2="16" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            <div>
+              <p class="feat-title">Analyst-Grade Intelligence</p>
+              <p class="feat-desc">Trained on real product workflows. Knows the difference between a bug and a feature request.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONFIGS ════════════════════════════════════════ -->
+<section class="configs" id="configs">
+  <div class="container">
+    <p class="sec-label" data-reveal>02 / Available Configurations</p>
+    <h2 class="sec-title" data-reveal data-d="1">PALLS ships in<br/><em>three modes.</em></h2>
+    <div class="config-grid">
+
+      <article class="config-card" data-reveal data-d="1">
+        <span class="cfg-num">01</span>
+        <svg class="cfg-icon" viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="13" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M6 31c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3 class="cfg-title">Subject Matter Expert</h3>
+        <p class="cfg-desc">Deep domain knowledge on demand. PALLS acts as a technical SME — answering nuanced product and engineering questions with precision your team can act on.</p>
+        <a href="https://main--g00d-tech.netlify.app/sme" class="cfg-link" target="_blank" rel="noopener">
+          Launch SME <span class="cfg-arrow">→</span>
+        </a>
+      </article>
+
+      <article class="config-card" data-reveal data-d="2">
+        <span class="cfg-num">02</span>
+        <svg class="cfg-icon" viewBox="0 0 36 36" fill="none">
+          <rect x="4" y="4" width="28" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="4"  y1="13" x2="32" y2="13" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="13" y1="13" x2="13" y2="32" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <h3 class="cfg-title">Product Analyst &amp; JIRA Assistant</h3>
+        <p class="cfg-desc">The core PALLS experience. Backlog triage, severity scoring, impact mapping, and full JIRA story generation — all from a single prompt.</p>
+        <a href="https://main--g00d-tech.netlify.app/pa" class="cfg-link" target="_blank" rel="noopener">
+          Launch PA <span class="cfg-arrow">→</span>
+        </a>
+      </article>
+
+      <article class="config-card" data-reveal data-d="3">
+        <span class="cfg-num">03</span>
+        <svg class="cfg-icon" viewBox="0 0 36 36" fill="none">
+          <path d="M4 9h28M4 18h28M4 27h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="28" cy="27" r="5" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="31.5" y1="30.5" x2="34" y2="33" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3 class="cfg-title">Customer &amp; Client Support Specialist</h3>
+        <p class="cfg-desc">Turn support tickets into structured product intelligence. Triages inbound requests, categorises feedback, and surfaces patterns your team can fix.</p>
+        <a href="https://main--g00d-tech.netlify.app/cs" class="cfg-link" target="_blank" rel="noopener">
+          Launch CS <span class="cfg-arrow">→</span>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ ETHICS ════════════════════════════════════════ -->
+<section class="ethics" id="ethics">
+  <div class="container">
+    <div class="ethics-grid">
+      <div class="ethics-left">
+        <p class="sec-label" data-reveal>03 / AI Ethics</p>
+        <h2 class="sec-title" data-reveal data-d="1">We build AI.<br/><em>We own<br/>the impact.</em></h2>
+        <div class="pledge" data-reveal data-d="2">
+          <span class="pledge-pct">10%</span>
+          <p class="pledge-copy">of all GoodTech profits are set aside to invest in educational initiatives that benefit workers displaced by AI.</p>
+        </div>
+        <a href="https://unrivaled-licorice-c10ff0.netlify.app/ethics" class="btn btn-ghost" target="_blank" rel="noopener" data-reveal data-d="3">
+          Read full policy →
+        </a>
+      </div>
+      <div data-reveal data-d="2">
+        <div class="ethics-terminal">
+          <div class="term-bar">
+            <span class="tdot tdot-r"></span>
+            <span class="tdot tdot-y"></span>
+            <span class="tdot tdot-g"></span>
+            <span class="term-title">ethics.txt</span>
+          </div>
+          <div class="term-body">
+            <p><span class="t-cm"># GoodTech AI Ethics Policy v1.0</span></p>
+            <p>&nbsp;</p>
+            <p><span class="t-key">PLEDGE</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = <span class="t-val">"10% profits → education"</span></p>
+            <p><span class="t-key">FOCUS</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = <span class="t-val">"displaced workers"</span></p>
+            <p><span class="t-key">APPROACH</span>&nbsp;&nbsp;&nbsp; = <span class="t-val">"human-first AI"</span></p>
+            <p><span class="t-key">TRANSPARENCY</span> = <span class="t-val">true</span></p>
+            <p>&nbsp;</p>
+            <p><span class="t-cm"># We believe AI should create new opportunities,</span></p>
+            <p><span class="t-cm"># not just eliminate old ones.</span></p>
+            <p>&nbsp;</p>
+            <p><span class="t-pr">$</span> <span class="blink">▌</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ════════════════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <p class="sec-label" style="display:block;text-align:center" data-reveal>04 / Start here</p>
+    <h2 class="contact-hl" data-reveal data-d="1">There's a bright future,<br/><em>with your PALLS.</em></h2>
+    <a href="mailto:hello@goodtech.dev" class="contact-email" data-reveal data-d="2">hello@goodtech.dev</a>
+    <div class="contact-actions" data-reveal data-d="3">
+      <a href="mailto:hello@goodtech.dev" class="btn btn-primary">Send a message</a>
+      <a href="https://unrivaled-licorice-c10ff0.netlify.app/ethics" class="btn btn-ghost" target="_blank" rel="noopener">Read ethics policy</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <span class="footer-logo">G<span style="color:var(--blue)">00</span>Dtech</span>
+    <div class="footer-links">
+      <a href="#palls">P.A.L.L.S</a>
+      <a href="#configs">Configs</a>
+      <a href="#ethics">Ethics</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <span class="footer-copy">© 2024 GoodTech. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
