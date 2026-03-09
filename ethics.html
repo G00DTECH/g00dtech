@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI Ethics Policy &mdash; G00Dtech</title>
+<meta name="description" content="G00Dtech's standing policy on AI, automation, and our commitment to workers displaced by technology.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #06080f;
+  --bg-mid:  #0a0d1a;
+  --bg-card: #0c1020;
+  --bch:     #111628;
+  --blue:    #38b6ff;
+  --bhi:     #70cbff;
+  --white:   #eef2f8;
+  --muted:   rgba(238,242,248,0.45);
+  --bdr:     rgba(56,182,255,0.09);
+  --bdrh:    rgba(56,182,255,0.28);
+  --glow:    rgba(56,182,255,0.06);
+  --spring:  cubic-bezier(0.16,1,0.3,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-family:"Outfit",sans-serif;background:var(--bg);color:var(--white);scroll-behavior:smooth}
+body{overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* CURSOR */
+#cur,#cur-ring{display:none}
+@media(pointer:fine){
+  #cur{display:block;position:fixed;width:10px;height:10px;border-radius:50%;background:var(--blue);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 14px var(--blue);transition:transform .08s ease}
+  #cur-ring{display:block;position:fixed;width:30px;height:30px;border-radius:50%;border:1px solid rgba(56,182,255,.45);pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
+  html{cursor:none}
+}
+#cur.big{transform:translate(-50%,-50%) scale(2.2)}
+
+.wrap{max-width:860px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3.5rem)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem clamp(1.25rem,5vw,3.5rem);background:rgba(6,8,15,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr)}
+.nav-logo{font-family:"Outfit",sans-serif;font-size:1.05rem;font-weight:900}
+.nav-logo span{color:var(--blue)}
+.nav-back{font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.1em;color:var(--muted);display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.nav-back:hover{color:var(--blue)}
+
+/* HERO */
+.hero{padding:clamp(8rem,14vw,11rem) 0 clamp(3rem,6vw,5rem);border-bottom:1px solid var(--bdr);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-200px;left:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(56,182,255,.06) 0%,transparent 70%);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:.5rem;font-family:"JetBrains Mono",monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:1.5rem}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px var(--blue);animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+.hero h1{font-size:clamp(2.4rem,7vw,5rem);font-weight:900;line-height:1;letter-spacing:-.04em;margin-bottom:1.2rem}
+.hero h1 em{font-style:italic;color:var(--blue)}
+.hero-sub{font-size:clamp(.95rem,1.8vw,1.1rem);line-height:1.85;color:var(--muted);max-width:600px;margin-bottom:1rem}
+.last-updated{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.1em;color:rgba(56,182,255,.35);margin-top:1.5rem}
+
+/* CONTENT */
+.content{padding:clamp(3rem,7vw,6rem) 0}
+.content + .content{padding-top:0}
+.section{margin-bottom:clamp(2.5rem,5vw,4rem)}
+.section-num{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:.6rem}
+.section h2{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:900;letter-spacing:-.025em;margin-bottom:1rem;line-height:1.2}
+.section p{font-size:.92rem;line-height:1.9;color:var(--muted);margin-bottom:.9rem}
+.section p strong{color:var(--white);font-weight:600}
+.section ul{padding-left:1.2rem;margin:.5rem 0 .9rem}
+.section li{font-size:.92rem;line-height:1.85;color:var(--muted);margin-bottom:.4rem}
+.section li strong{color:var(--white);font-weight:600}
+
+/* PLEDGE BLOCK */
+.pledge{border:1px solid var(--bdrh);background:var(--bg-card);padding:clamp(1.5rem,4vw,2.5rem);margin:2rem 0;position:relative;overflow:hidden}
+.pledge::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(56,182,255,.05),transparent 55%);pointer-events:none}
+.pledge-label{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:.8rem;display:block}
+.pledge h3{font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:900;letter-spacing:-.02em;margin-bottom:.8rem}
+.pledge p{font-size:.92rem;line-height:1.9;color:var(--muted)}
+.pledge p strong{color:var(--white)}
+
+/* DIVIDER */
+.div{border:none;border-top:1px solid var(--bdr);margin:clamp(2rem,4vw,3rem) 0}
+
+/* STAT ROW */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bdr);border:1px solid var(--bdr);margin:2rem 0}
+.stat{background:var(--bg-card);padding:1.4rem 1.6rem}
+.stat-n{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--blue);letter-spacing:-.04em;line-height:1;margin-bottom:.3rem}
+.stat-l{font-family:"JetBrains Mono",monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* FOOTER */
+.footer{padding:1.8rem 0;border-top:1px solid var(--bdr);background:#020409;margin-top:clamp(3rem,6vw,5rem)}
+.foot-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.foot-logo{font-weight:900;font-size:.95rem}
+.foot-logo span{color:var(--blue)}
+.foot-copy{font-family:"JetBrains Mono",monospace;font-size:.58rem;color:rgba(238,242,248,.2)}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(18px);transition:opacity .7s var(--spring),transform .7s var(--spring)}
+.r.on{opacity:1;transform:none}
+.r.d1{transition-delay:.1s}.r.d2{transition-delay:.2s}.r.d3{transition-delay:.3s}
+
+@media(max-width:600px){
+  .stats{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition-duration:.01ms !important}
+  .r{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<header class="nav">
+  <a href="index.html" class="nav-logo">G<span>00</span>Dtech</a>
+  <a href="index.html" class="nav-back">&#8592; Back to G00Dtech</a>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="badge r"><span class="dot"></span>Standing Business Policy</div>
+    <h1 class="r d1">AI <em>&amp; Ethics</em><br>Policy</h1>
+    <p class="hero-sub r d2">
+      We build with AI. We also believe the people displaced by it deserve more than a press release.
+      This is our standing commitment &mdash; not a marketing claim, not a footnote.
+    </p>
+    <p class="last-updated r d3">Effective: January 2025 &mdash; reviewed annually</p>
+  </div>
+</section>
+
+<div class="content">
+  <div class="wrap">
+
+    <div class="pledge r">
+      <span class="pledge-label">The Core Commitment</span>
+      <h3>10% of profits go to workforce transition education &mdash; every year, no exceptions.</h3>
+      <p>
+        <strong>G00Dtech donates 10% of net profits</strong> to organisations providing retraining, reskilling,
+        and career transition support for workers whose jobs have been eliminated or substantially changed
+        by AI and automation. This is a standing policy, not a campaign.
+      </p>
+    </div>
+
+    <div class="stats r">
+      <div class="stat"><div class="stat-n">10%</div><div class="stat-l">Net profits donated annually</div></div>
+      <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Disclosed recipients, no vague "giving"</div></div>
+      <div class="stat"><div class="stat-n">Year 1</div><div class="stat-l">Policy active since founding</div></div>
+    </div>
+
+    <hr class="div">
+
+    <div class="section r">
+      <span class="section-num">01 &mdash; Why This Exists</span>
+      <h2>We profit from AI. That creates a responsibility.</h2>
+      <p>
+        The tools we build &mdash; automation scripts, AI integrations, LLM-powered workflows &mdash; make
+        businesses more efficient. Efficiency often means fewer people doing the same amount of work.
+        We are not naive about this.
+      </p>
+      <p>
+        We didn&#39;t create this dynamic, but we participate in it every time we ship a product.
+        <strong>The 10% commitment is how we take partial ownership of that outcome.</strong>
+      </p>
+      <p>
+        This isn&#39;t guilt &mdash; it&#39;s accounting. If our tools create value by reducing labour costs,
+        some of that value should flow back to the people absorbing that cost.
+      </p>
+    </div>
+
+    <hr class="div">
+
+    <div class="section r">
+      <span class="section-num">02 &mdash; What We Fund</span>
+      <h2>Retraining, not charity.</h2>
+      <p>
+        We specifically target organisations focused on <strong>practical workforce transition</strong> &mdash;
+        not general poverty relief, not tech evangelism. The criteria:
+      </p>
+      <ul>
+        <li><strong>Skills-first programs</strong> that teach transferable, employable skills to displaced workers</li>
+        <li><strong>Community college partnerships</strong> and vocational retraining for non-traditional learners</li>
+        <li><strong>Blue-collar to tech pathways</strong> that don&#39;t require a four-year degree</li>
+        <li><strong>Rural and underserved programs</strong> where automation impact is high and alternatives are few</li>
+      </ul>
+      <p>
+        We will disclose recipient organisations annually. If we can&#39;t name where the money went,
+        it doesn&#39;t count.
+      </p>
+    </div>
+
+    <hr class="div">
+
+    <div class="section r">
+      <span class="section-num">03 &mdash; How We Build</span>
+      <h2>Our internal standards for responsible AI use.</h2>
+      <p>
+        Beyond donations, we hold ourselves to a set of building standards for every product we ship:
+      </p>
+      <ul>
+        <li><strong>No dark patterns.</strong> We don&#39;t build features designed to manipulate, addict, or deceive users.</li>
+        <li><strong>Automation with a human fallback.</strong> Any automated system we build for a client includes a documented path for a human to intervene or override.</li>
+        <li><strong>Data minimalism.</strong> We collect what&#39;s needed. We don&#39;t store, sell, or broker personal data beyond what the product requires.</li>
+        <li><strong>Honest capability claims.</strong> We don&#39;t oversell AI. If a feature is a heuristic, we say it&#39;s a heuristic. If it&#39;s an LLM making a guess, we say that too.</li>
+        <li><strong>Client education.</strong> We brief every client on what their AI tools can and cannot do before handoff, in plain language.</li>
+      </ul>
+    </div>
+
+    <hr class="div">
+
+    <div class="section r">
+      <span class="section-num">04 &mdash; What We Won&#39;t Build</span>
+      <h2>Hard limits. Not negotiable.</h2>
+      <p>We turn down work that involves:</p>
+      <ul>
+        <li>Surveillance tools intended to monitor workers without their knowledge</li>
+        <li>Automated hiring systems designed to screen out candidates without human review</li>
+        <li>AI-generated content intended to impersonate real people or fabricate credentials</li>
+        <li>Tools built to automate SPAM, phishing, or mass manipulation campaigns</li>
+        <li>Any system where the primary value proposition is removing human judgment from a decision that materially affects someone&#39;s livelihood</li>
+      </ul>
+      <p>
+        This isn&#39;t a legal disclaimer. It&#39;s a list of things we&#39;ve been asked to build and said no to.
+      </p>
+    </div>
+
+    <hr class="div">
+
+    <div class="section r">
+      <span class="section-num">05 &mdash; Accountability</span>
+      <h2>How we stay honest about this.</h2>
+      <p>
+        Policies are easy to write. Here is how this one stays real:
+      </p>
+      <ul>
+        <li><strong>Annual disclosure.</strong> Recipient organisations and amounts published each January.</li>
+        <li><strong>No carve-outs.</strong> The 10% applies to net profit regardless of whether the revenue came from AI-adjacent work or not.</li>
+        <li><strong>Client-facing.</strong> Any client who asks can see the current year&#39;s giving status. We don&#39;t hide the number.</li>
+        <li><strong>This page is the policy.</strong> If something changes, this page changes &mdash; with a date. No quiet edits.</li>
+      </ul>
+    </div>
+
+    <hr class="div">
+
+    <div class="section r">
+      <span class="section-num">06 &mdash; Contact</span>
+      <h2>Questions, challenges, partnership.</h2>
+      <p>
+        If you run a workforce transition program and want to be considered for funding, or if you have
+        questions or challenges about this policy, reach out directly:
+        <strong><a href="mailto:jharvmail@gmail.com" style="color:var(--blue)">jharvmail@gmail.com</a></strong>
+      </p>
+      <p>
+        We&#39;re a small operation. Every email gets a real reply.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="wrap foot-in">
+    <span class="foot-logo">G<span>00</span>Dtech</span>
+    <span class="foot-copy">Portland, Maine &mdash; jharvmail@gmail.com</span>
+  </div>
+</footer>
+
+<script>
+(function() {
+  // Cursor
+  var cur = document.getElementById('cur');
+  var ring = document.getElementById('cur-ring');
+  if (cur) {
+    var mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',function(e){
+      mx=e.clientX;my=e.clientY;
+      cur.style.left=mx+'px';cur.style.top=my+'px';
+    });
+    (function trail(){
+      rx+=(mx-rx)*.13;ry+=(my-ry)*.13;
+      ring.style.left=rx+'px';ring.style.top=ry+'px';
+      requestAnimationFrame(trail);
+    })();
+    document.addEventListener('mouseover',function(e){
+      if(e.target.closest('a,button')){cur.classList.add('big');ring.style.opacity='0';}
+    });
+    document.addEventListener('mouseout',function(e){
+      if(e.target.closest('a,button')){cur.classList.remove('big');ring.style.opacity='1';}
+    });
+  }
+
+  // Scroll reveal
+  function revealAll(){
+    document.querySelectorAll('.r').forEach(function(el){el.classList.add('on');});
+  }
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}
+      });
+    },{threshold:0.06,rootMargin:'0px 0px -20px 0px'});
+    document.querySelectorAll('.r').forEach(function(el){obs.observe(el);});
+  } else {
+    revealAll();
+  }
+  setTimeout(revealAll, 1500);
+})();
+</script>
+</body>
+</html>

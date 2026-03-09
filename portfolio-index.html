@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>Justin Harvey &mdash; Product Owner &amp; Builder</title>
+<meta name="description" content="Justin Harvey. Product Owner and builder. Portland, Maine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #06080f;
+  --bg-mid:  #0a0d1a;
+  --bg-card: #0c1020;
+  --bch:     #111628;
+  --blue:    #38b6ff;
+  --bhi:     #70cbff;
+  --white:   #eef2f8;
+  --muted:   rgba(238,242,248,0.45);
+  --bdr:     rgba(56,182,255,0.09);
+  --bdrh:    rgba(56,182,255,0.28);
+  --glow:    rgba(56,182,255,0.10);
+  --spring:  cubic-bezier(0.16,1,0.3,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-family:"Outfit",sans-serif;background:var(--bg);color:var(--white);scroll-behavior:smooth}
+body{overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* CURSOR - desktop only */
+#cur,#cur-ring{display:none}
+@media(pointer:fine){
+  #cur{display:block;position:fixed;width:10px;height:10px;border-radius:50%;background:var(--blue);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:0 0 14px var(--blue);transition:transform .08s ease}
+  #cur-ring{display:block;position:fixed;width:30px;height:30px;border-radius:50%;border:1px solid rgba(56,182,255,.45);pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
+  html{cursor:none}
+}
+#cur.big{transform:translate(-50%,-50%) scale(2.2)}
+
+.wrap{max-width:1060px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3.5rem)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem clamp(1.25rem,5vw,3.5rem);border-bottom:1px solid transparent;transition:background .4s,border-color .4s}
+.nav.stuck{background:rgba(6,8,15,.92);backdrop-filter:blur(20px);border-color:var(--bdr)}
+.nav-logo{font-family:"Outfit",sans-serif;font-size:1.05rem;font-weight:900}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-a{font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+.nav-a:hover{color:var(--white)}
+.nav-cta{color:var(--blue);border:1px solid var(--bdrh);padding:.4rem .9rem;border-radius:3px;transition:all .2s}
+.nav-cta:hover{background:var(--glow)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.burger span{display:block;width:22px;height:1.5px;background:var(--white);transition:all .3s var(--spring);transform-origin:center}
+.burger.open span:first-child{transform:translateY(6.5px) rotate(45deg)}
+.burger.open span:last-child{transform:translateY(-6.5px) rotate(-45deg)}
+.drawer{position:fixed;inset:0;z-index:90;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity .25s}
+.drawer.open{opacity:1;pointer-events:all}
+.drawer a{font-family:"Outfit",sans-serif;font-size:clamp(1.8rem,6vw,2.8rem);font-weight:900;color:var(--muted);transition:color .2s}
+.drawer a:hover{color:var(--blue)}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--bg)}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
+.scanlines{position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0,transparent 3px,rgba(0,0,0,.06) 3px,rgba(0,0,0,.06) 4px)}
+#spt{position:absolute;width:500px;height:500px;border-radius:50%;pointer-events:none;z-index:2;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(56,182,255,.08) 0%,transparent 70%);transition:left .15s,top .15s}
+.hero-fade{position:absolute;bottom:0;left:0;right:0;height:200px;z-index:4;pointer-events:none;background:linear-gradient(to top,var(--bg),transparent)}
+.hero-body{position:relative;z-index:5;padding:clamp(7rem,14vw,10rem) clamp(1.25rem,5vw,3.5rem) 5rem;max-width:820px}
+.badge{display:inline-flex;align-items:center;gap:.5rem;font-family:"JetBrains Mono",monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:2rem}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px var(--blue);animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+.hero-name{font-size:clamp(3rem,10vw,8rem);font-weight:900;line-height:.95;letter-spacing:-.04em;margin-bottom:1.2rem;animation:float 7s ease-in-out 1s infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.grad{background:linear-gradient(to right,var(--blue) 0%,var(--bhi) 40%,var(--blue) 80%);background-size:200%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gshift 3s linear infinite}
+@keyframes gshift{0%{background-position:0%}100%{background-position:200%}}
+.hero-role{font-family:"JetBrains Mono",monospace;font-size:clamp(.68rem,1.3vw,.8rem);letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:1.6rem}
+.hero-bio{font-size:clamp(.95rem,1.8vw,1.05rem);line-height:1.85;color:var(--muted);max-width:540px;margin-bottom:2.4rem}
+.hero-bio strong{color:var(--white);font-weight:600}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.08em;padding:.75rem 1.5rem;border-radius:3px;transition:all .25s var(--spring)}
+.btn-p{background:var(--blue);color:var(--bg);font-weight:500}
+.btn-p:hover{background:#fff;box-shadow:0 0 24px rgba(56,182,255,.4);transform:translateY(-2px)}
+.btn-g{background:transparent;color:var(--white);border:1px solid var(--bdrh)}
+.btn-g:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+.coords{position:absolute;bottom:2rem;right:clamp(1.25rem,5vw,3.5rem);z-index:5;font-family:"JetBrains Mono",monospace;font-size:.58rem;letter-spacing:.08em;color:rgba(56,182,255,.25);text-align:right}
+.scroll-hint{position:absolute;bottom:2rem;left:clamp(1.25rem,5vw,3.5rem);z-index:5;display:flex;flex-direction:column;align-items:center;gap:.5rem;font-family:"JetBrains Mono",monospace;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.sline{width:1px;height:40px;background:linear-gradient(to bottom,rgba(56,182,255,.6),transparent);animation:scrl 2.2s ease-in-out infinite}
+@keyframes scrl{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* SECTIONS */
+.sec{padding:clamp(4rem,9vw,7rem) 0;border-top:1px solid var(--bdr)}
+.sec.alt{background:var(--bg-mid)}
+.sec-label{font-family:"JetBrains Mono",monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:1.1rem}
+.sec-title{font-size:clamp(1.8rem,4vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-.025em;margin-bottom:.5rem}
+.sec-title em{font-style:italic;color:var(--blue)}
+.sec-sub{font-family:"JetBrains Mono",monospace;font-size:.78rem;color:var(--muted);margin-bottom:2.5rem}
+.body-t{font-size:.9rem;line-height:1.85;color:var(--muted);margin-bottom:1rem}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(20px);transition:opacity .8s var(--spring),transform .8s var(--spring)}
+.r.on{opacity:1;transform:none}
+.r.d1{transition-delay:.1s}.r.d2{transition-delay:.2s}.r.d3{transition-delay:.3s}.r.d4{transition-delay:.4s}
+
+/* PATENT */
+.patent-card{border:1px solid var(--bdrh);background:var(--bg-card);padding:clamp(1.5rem,4vw,2.8rem);position:relative;overflow:hidden}
+.patent-card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(56,182,255,.04),transparent 55%);pointer-events:none}
+.p-eye{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem}
+.p-badge{background:rgba(56,182,255,.1);border:1px solid var(--bdrh);padding:.2rem .55rem;border-radius:2px}
+.p-title{font-size:clamp(1.2rem,3vw,1.9rem);font-weight:900;letter-spacing:-.025em;margin-bottom:1rem;line-height:1.2}
+.p-lead{font-size:.92rem;line-height:1.85;color:var(--muted);margin-bottom:2rem;max-width:640px}
+.p-blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bdr);border:1px solid var(--bdr)}
+.p-block{background:var(--bg-card);padding:1.3rem 1.5rem}
+.p-block h3{font-size:.85rem;font-weight:700;color:var(--blue);margin-bottom:.6rem}
+.p-block p,.p-block li{font-size:.82rem;line-height:1.75;color:var(--muted)}
+.p-block ul{padding-left:1rem}
+.p-block li{margin-bottom:.25rem}
+.p-status{font-family:"JetBrains Mono",monospace;font-size:.63rem;letter-spacing:.08em;color:rgba(56,182,255,.35);margin-top:1.4rem}
+
+/* GRID CARDS */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bdr);border:1px solid var(--bdr)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bdr);border:1px solid var(--bdr)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bdr);border:1px solid var(--bdr)}
+.card{background:var(--bg-card);padding:clamp(1.2rem,3vw,2rem);display:flex;flex-direction:column;gap:.8rem;transition:background .25s;position:relative;overflow:hidden}
+.card::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background .3s}
+.card:hover{background:var(--bch)}
+.card:hover::after{background:linear-gradient(to right,var(--blue),var(--bhi))}
+.card.span2{grid-column:span 2}
+.c-tag{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(56,182,255,.55)}
+.c-title{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;color:var(--white);line-height:1.25}
+.c-title a{color:inherit;transition:color .2s}
+.c-title a:hover{color:var(--blue)}
+.c-desc{font-size:.82rem;line-height:1.75;color:var(--muted);flex:1}
+.c-links{display:flex;gap:.6rem;flex-wrap:wrap;padding-top:.8rem;border-top:1px solid var(--bdr)}
+.c-link{font-family:"JetBrains Mono",monospace;font-size:.65rem;letter-spacing:.05em;color:var(--blue);transition:color .2s,gap .2s;display:inline-flex;align-items:center;gap:.3rem}
+.c-link:hover{color:#fff;gap:.5rem}
+
+/* EXPERIENCE */
+.exp-list{display:flex;flex-direction:column;gap:1px;background:var(--bdr);border:1px solid var(--bdr)}
+.exp{background:var(--bg-card);padding:1.6rem 2rem;transition:background .25s}
+.exp:hover{background:var(--bch)}
+.exp-org{font-family:"JetBrains Mono",monospace;font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:.35rem}
+.exp-role{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.6rem}
+.exp-desc{font-size:.85rem;line-height:1.8;color:var(--muted)}
+.exp-desc ul{padding-left:1.1rem;margin-top:.4rem}
+.exp-desc li{margin-bottom:.25rem}
+
+/* TOOLS */
+.t-cat{background:var(--bg-card);padding:1.4rem 1.6rem}
+.t-cat h4{font-family:"JetBrains Mono",monospace;font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:.7rem}
+.t-cat p{font-size:.82rem;line-height:1.75;color:var(--muted)}
+
+/* FOOTER */
+.footer{padding:1.8rem 0;border-top:1px solid var(--bdr);background:#020409}
+.foot-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.foot-logo{font-weight:900;font-size:.95rem}
+.foot-nav{display:flex;gap:2rem}
+.foot-nav a{font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+.foot-nav a:hover{color:var(--blue)}
+.foot-copy{font-family:"JetBrains Mono",monospace;font-size:.58rem;color:rgba(238,242,248,.2)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .p-blocks{grid-template-columns:1fr}
+  .grid2,.grid3,.grid4{grid-template-columns:1fr}
+  .card.span2{grid-column:span 1}
+  .foot-in{flex-direction:column;text-align:center}
+  .foot-nav{justify-content:center}
+}
+@media(max-width:480px){
+  .btns{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition-duration:.01ms !important}
+  .r{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#" class="nav-logo">Justin Harvey</a>
+  <nav class="nav-links">
+    <a href="#projects" class="nav-a">Projects</a>
+    <a href="#background" class="nav-a">Background</a>
+    <a href="#tools" class="nav-a">Tools</a>
+    <a href="https://g00dtech.netlify.app" class="nav-a nav-cta" target="_blank" rel="noopener">G00Dtech &#8594;</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+<div class="drawer" id="drawer">
+  <a href="#projects">Projects</a>
+  <a href="#background">Background</a>
+  <a href="#tools">Tools</a>
+  <a href="https://g00dtech.netlify.app" target="_blank" rel="noopener">G00Dtech</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <canvas id="cv"></canvas>
+  <div class="scanlines"></div>
+  <div id="spt"></div>
+  <div class="hero-fade"></div>
+  <div class="hero-body">
+    <div class="badge">
+      <span class="dot"></span>
+      Product Owner &amp; Builder &mdash; Portland, Maine
+    </div>
+    <h1 class="hero-name">
+      <span class="grad">Justin</span><br>Harvey
+    </h1>
+    <p class="hero-role">CSPO &middot; Developer &middot; Founder</p>
+    <p class="hero-bio">
+      I make tools for <strong>small businesses</strong>, <strong>nonprofits</strong>, and myself.
+      Background in automation, security training, and financial analytics.
+      Currently obsessed with backend architecture and creative monetization.
+    </p>
+    <div class="btns">
+      <a href="mailto:jharvmail@gmail.com" class="btn btn-p">Email me</a>
+      <a href="https://www.linkedin.com/in/justin-harvey-cspo/" class="btn btn-g" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="Justin_Harvey_Resume.pdf" class="btn btn-g" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </div>
+  <div class="coords"><div id="cx">x: 0000</div><div id="cy">y: 0000</div></div>
+  <div class="scroll-hint"><span>scroll</span><div class="sline"></div></div>
+</section>
+
+<!-- PATENT -->
+<section class="sec alt" id="patent">
+  <div class="wrap">
+    <span class="sec-label r">Patented Work</span>
+    <div class="patent-card r d1">
+      <div class="p-eye">Payment Infrastructure <span class="p-badge">Provisional Patent Filed</span></div>
+      <h2 class="p-title">Real-Time Government Tax Payment Infrastructure</h2>
+      <p class="p-lead">A patented system replacing multi-day ACH settlement with instant, auditable electronic settlement that won&#39;t disrupt existing banking systems.</p>
+      <div class="p-blocks">
+        <div class="p-block">
+          <h3>The Problem</h3>
+          <p>Government tax payments rely on batch-based or reversible payment rails &mdash; leading to settlement delays, reconciliation complexity, and operational risk for both payers and treasuries.</p>
+        </div>
+        <div class="p-block">
+          <h3>The Solution</h3>
+          <p>A three-layer settlement model:</p>
+          <ul>
+            <li>Instant compliance validation and payment confirmation</li>
+            <li>Cryptographically verifiable, irreversible settlement</li>
+            <li>Final USD reconciliation into government treasury accounts using existing banking infrastructure</li>
+          </ul>
+        </div>
+        <div class="p-block">
+          <h3>Why It Matters</h3>
+          <p>Faster, safer government revenue collection while preserving regulatory compliance, auditability, and compatibility with current financial systems.</p>
+        </div>
+      </div>
+      <p class="p-status">Provisional patent filed &mdash; details available upon request.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec" id="projects">
+  <div class="wrap">
+    <span class="sec-label r">Recent Projects</span>
+    <h2 class="sec-title r d1">Personal &amp; client work</h2>
+    <p class="sec-sub r d2">Product development, client sites, and tools</p>
+    <div class="grid2 r d3">
+      <div class="card span2">
+        <span class="c-tag">Client Work &mdash; Featured</span>
+        <h3 class="c-title"><a href="https://secondmountaininternalmedicine.com" target="_blank" rel="noopener">Second Mountain Internal Medicine</a></h3>
+        <p class="c-desc">Professional healthcare website for a home-based primary care practice serving homebound seniors in Maine. WCAG 2.1 accessible, mobile-first, with HIPAA-ready contact forms.</p>
+        <div class="c-links"><a href="https://secondmountaininternalmedicine.com" class="c-link" target="_blank" rel="noopener">View live site &#8594;</a></div>
+      </div>
+      <div class="card">
+        <span class="c-tag">Product</span>
+        <h3 class="c-title"><a href="https://universal-pos-ncyutj9.gamma.site/" target="_blank" rel="noopener">Universal POS System</a></h3>
+        <p class="c-desc">Complete point-of-sale solution with integrated inventory management, payment processing, and real-time analytics dashboard.</p>
+        <div class="c-links">
+          <a href="https://omni-pos-demo.netlify.app/" class="c-link" target="_blank" rel="noopener">Live Demo &#8594;</a>
+          <a href="https://omni-pos-db.netlify.app/" class="c-link" target="_blank" rel="noopener">Dashboard &#8594;</a>
+        </div>
+      </div>
+      <div class="card">
+        <span class="c-tag">Fintech</span>
+        <h3 class="c-title"><a href="https://state-tax-portal.netlify.app/" target="_blank" rel="noopener">XRPL Excise Tax Portal</a></h3>
+        <p class="c-desc">Cryptocurrency tax calculation tool for XRPL transactions. Helps users understand their tax obligations with clear, actionable breakdowns.</p>
+        <div class="c-links"><a href="https://state-tax-portal.netlify.app/" class="c-link" target="_blank" rel="noopener">View site &#8594;</a></div>
+      </div>
+      <div class="card">
+        <span class="c-tag">Operations Tool</span>
+        <h3 class="c-title"><a href="https://ward-water.netlify.app/" target="_blank" rel="noopener">Ward Water Inventory</a></h3>
+        <p class="c-desc">Mobile-first inventory management with UPC barcode scanning. Built for a small business to track stock levels and orders.</p>
+        <div class="c-links"><a href="https://ward-water.netlify.app/" class="c-link" target="_blank" rel="noopener">View site &#8594;</a></div>
+      </div>
+      <div class="card">
+        <span class="c-tag">Nonprofit</span>
+        <h3 class="c-title">Maine Beacon Survival Kits</h3>
+        <p class="c-desc">Website for a nonprofit providing winter survival equipment to homeless individuals in Maine. Program info, impact metrics, and volunteer coordination.</p>
+      </div>
+      <div class="card">
+        <span class="c-tag">Nonprofit &amp; Heritage</span>
+        <h3 class="c-title">Portland Longshoreman&#39;s Benevolent Society</h3>
+        <p class="c-desc">Historical society website with member management system. Preserving the legacy of Portland, Maine&#39;s waterfront workers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEV TOOLS -->
+<section class="sec alt" id="devtools">
+  <div class="wrap">
+    <span class="sec-label r">Developer Tools &amp; Fun</span>
+    <h2 class="sec-title r d1">Browser extensions <em>&amp; experiments</em></h2>
+    <p class="sec-sub r d2">Built for developers, power users, and curiosity</p>
+    <div class="grid2 r d3">
+      <div class="card">
+        <span class="c-tag">Chrome Extension</span>
+        <h3 class="c-title">Job Auto-Fill Extension</h3>
+        <p class="c-desc">Browser extension + web app for automatically filling job applications. Smart form detection, instant auto-fill, comprehensive profile management. Privacy-focused with all data stored locally.</p>
+      </div>
+      <div class="card">
+        <span class="c-tag">Chrome Extension</span>
+        <h3 class="c-title">MST3K YouTube Theater</h3>
+        <p class="c-desc">Chrome extension adding Mystery Science Theater 3000-style animated silhouettes to YouTube videos. Three characters with randomised bobbing, leaning, and talking animations.</p>
+      </div>
+      <div class="card">
+        <span class="c-tag">Fun Project</span>
+        <h3 class="c-title">Ars Notoria Digitalis</h3>
+        <p class="c-desc">A digital grimoire based on the 13th-century Ars Notoria manuscript, styled after TempleOS. Interactive sigils, historically accurate orations, and a journaling system with unlockable features.</p>
+      </div>
+      <div class="card">
+        <span class="c-tag">Fun Project</span>
+        <h3 class="c-title"><a href="https://gorgeous-semifreddo-5db4e8.netlify.app/" target="_blank" rel="noopener">AIM Chat Clone</a></h3>
+        <p class="c-desc">A nostalgic recreation of the classic AOL Instant Messenger interface. Complete with buddy lists, away messages, and that familiar UI.</p>
+        <div class="c-links"><a href="https://gorgeous-semifreddo-5db4e8.netlify.app/" class="c-link" target="_blank" rel="noopener">View &#8594;</a></div>
+      </div>
+    
+      <div class="card">
+        <span class="c-tag">Education &amp; Fun</span>
+        <h3 class="c-title"><a href="https://doom-chemistry-escape-room.netlify.app/" target="_blank" rel="noopener">DOOM Chemistry Escape Room</a></h3>
+        <p class="c-desc">Gamified AP Chemistry learning experience. Players solve chemistry puzzles in a DOOM-inspired environment to escape.</p>
+        <div class="c-links"><a href="https://doom-chemistry-escape-room.netlify.app/" class="c-link" target="_blank" rel="noopener">Play &#8594;</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BACKGROUND -->
+<section class="sec" id="background">
+  <div class="wrap">
+    <span class="sec-label r">Background</span>
+    <h2 class="sec-title r d1">Work I&#39;m <em>proud of.</em></h2>
+    <p class="sec-sub r d2">Professional experience and notable technical contributions</p>
+    <div class="exp-list r d3">
+      <div class="exp">
+        <p class="exp-org">Tyler Technologies</p>
+        <p class="exp-role">Product Owner &mdash; Enterprise Software</p>
+        <div class="exp-desc">
+          <p>Led data consolidation, financial analytics, and operational streamlining &mdash; saving significant costs and improving efficiency across the organisation.</p>
+          <ul>
+            <li>Automated smoke tests using Selenium with error handling and image capture on failure</li>
+            <li>CRM system for batching sales trips by analysing client service usage within geographic radius</li>
+            <li>Chatbot built on Microsoft LUIS to help parents find public resources</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp">
+        <p class="exp-org">45th Parallel Risk Management</p>
+        <p class="exp-role">Founder &mdash; Security Training</p>
+        <div class="exp-desc">Founded and led security training programs, developing sales strategies for businesses of all sizes. Built from the ground up.</div>
+      </div>
+      <div class="exp">
+        <p class="exp-org">Scrum Alliance</p>
+        <p class="exp-role">Certified Scrum Product Owner (CSPO)</p>
+        <div class="exp-desc">Certified product ownership methodology applied across software teams, sprint planning, backlog management, and stakeholder communication.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="sec alt" id="tools">
+  <div class="wrap">
+    <span class="sec-label r">Tools &amp; Technologies</span>
+    <h2 class="sec-title r d1">What I work <em>with.</em></h2>
+    <p class="sec-sub r d2">The stack behind the work</p>
+    <div class="grid4 r d3">
+      <div class="t-cat"><h4>Product</h4><p>Jira, Figma, Miro, Aha!, Confluence</p></div>
+      <div class="t-cat"><h4>AI / ML</h4><p>TensorFlow, PyTorch, GPT-4, LUIS</p></div>
+      <div class="t-cat"><h4>Automation</h4><p>Playwright, Selenium, Browser Extensions</p></div>
+      <div class="t-cat"><h4>Development</h4><p>JavaScript, HTML/CSS, SQL, Chrome APIs</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap foot-in">
+    <span class="foot-logo">Justin Harvey</span>
+    <nav class="foot-nav">
+      <a href="#projects">Projects</a>
+      <a href="#background">Background</a>
+      <a href="#tools">Tools</a>
+      <a href="https://g00dtech.netlify.app" target="_blank" rel="noopener">G00Dtech</a>
+    </nav>
+    <span class="foot-copy">Built with curiosity &mdash; Portland, Maine</span>
+  </div>
+</footer>
+
+<script>
+(function() {
+
+  //  Cursor (desktop only) 
+  var cur = document.getElementById('cur');
+  var ring = document.getElementById('cur-ring');
+  var spt = document.getElementById('spt');
+  if (cur) {
+    var mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e) {
+      mx = e.clientX; my = e.clientY;
+      cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+      if (spt) { spt.style.left = mx + 'px'; spt.style.top = my + 'px'; }
+      document.getElementById('cx').textContent = 'x: ' + String(Math.round(mx)).padStart(4,'0');
+      document.getElementById('cy').textContent = 'y: ' + String(Math.round(my)).padStart(4,'0');
+    });
+    (function trail() {
+      rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(trail);
+    })();
+    document.addEventListener('mouseover', function(e) {
+      if (e.target.closest('a,button,.card,.exp,.p-block')) { cur.classList.add('big'); ring.style.opacity = '0'; }
+    });
+    document.addEventListener('mouseout', function(e) {
+      if (e.target.closest('a,button,.card,.exp,.p-block')) { cur.classList.remove('big'); ring.style.opacity = '1'; }
+    });
+  }
+
+  //  Canvas wave engine 
+  var canvas = document.getElementById('cv');
+  var ctx = canvas.getContext('2d');
+  var isMobile = window.innerWidth < 900 || ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  var PX   = isMobile ? 14 : 6;
+  var SCALE = isMobile ? 0.5 : 1;
+  var FPS  = isMobile ? 30 : 60;
+  var DAMP = 0.985;
+  var cols, rows, b0, b1, img, px;
+
+  function init() {
+    var hero = document.getElementById('hero');
+    var w = (hero.offsetWidth  || window.innerWidth)  * SCALE;
+    var h = (hero.offsetHeight || window.innerHeight) * SCALE;
+    canvas.width  = Math.floor(w);
+    canvas.height = Math.floor(h);
+    canvas.style.width  = '100%';
+    canvas.style.height = '100%';
+    cols = Math.ceil(canvas.width  / PX);
+    rows = Math.ceil(canvas.height / PX);
+    b0 = new Float32Array(cols * rows);
+    b1 = new Float32Array(cols * rows);
+    img = ctx.createImageData(canvas.width, canvas.height);
+    px  = img.data;
+    for (var i = 0; i < px.length; i += 4) { px[i]=6; px[i+1]=8; px[i+2]=15; px[i+3]=255; }
+  }
+
+  function drop(x, y, rad, str) {
+    var cx = Math.floor(x / PX), cy = Math.floor(y / PX), r = Math.ceil(rad / PX);
+    for (var dy = -r; dy <= r; dy++) {
+      for (var dx = -r; dx <= r; dx++) {
+        var d = Math.sqrt(dx*dx + dy*dy);
+        if (d <= r) {
+          var nx = cx+dx, ny = cy+dy;
+          if (nx>=0 && nx<cols && ny>=0 && ny<rows) {
+            var f = 1 - d/r; b0[ny*cols+nx] += str*f*f;
+          }
+        }
+      }
+    }
+  }
+
+  function step() {
+    for (var y = 1; y < rows-1; y++) {
+      for (var x = 1; x < cols-1; x++) {
+        var i = y*cols+x;
+        b1[i] = (b0[i-1]+b0[i+1]+b0[i-cols]+b0[i+cols]) * 0.5 - b1[i];
+        b1[i] *= DAMP;
+      }
+    }
+    var t = b0; b0 = b1; b1 = t;
+  }
+
+  function draw() {
+    for (var y = 0; y < rows; y++) {
+      for (var x = 0; x < cols; x++) {
+        var h = b0[y*cols+x];
+        var c = Math.max(-1, Math.min(1, h/120));
+        var r=6, g=8, b=15;
+        if (c > 0) {
+          r = 6  + c*(56-6)   + c*c*(255-56);
+          g = 8  + c*(182-8)  + c*c*(255-182);
+          b = 15 + c*(255-15);
+        } else {
+          var t = -c;
+          r = Math.max(0, 6  - t*6);
+          g = Math.max(0, 8  - t*8);
+          b = Math.max(0, 15 - t*5);
+        }
+        var x0=x*PX, y0=y*PX;
+        var x1=Math.min(x0+PX,canvas.width), y1=Math.min(y0+PX,canvas.height);
+        for (var py=y0; py<y1; py++) {
+          for (var qx=x0; qx<x1; qx++) {
+            var idx=(py*canvas.width+qx)*4;
+            px[idx]=r; px[idx+1]=g; px[idx+2]=b;
+          }
+        }
+      }
+    }
+    ctx.putImageData(img, 0, 0);
+  }
+
+  var lastFrame = 0;
+  var frameDur = 1000 / FPS;
+  function loop(now) {
+    requestAnimationFrame(loop);
+    if (now - lastFrame < frameDur) return;
+    lastFrame = now;
+    step();
+    draw();
+  }
+
+  function heroXY(clientX, clientY) {
+    var rect = canvas.getBoundingClientRect();
+    var scaleX = canvas.width / rect.width;
+    var scaleY = canvas.height / rect.height;
+    return { x: (clientX - rect.left) * scaleX, y: (clientY - rect.top) * scaleY };
+  }
+
+  // Input -- NOTE: no e.preventDefault() anywhere so scroll always works
+  var down = false;
+  var hero = document.getElementById('hero');
+
+  hero.addEventListener('mousedown', function(e) {
+    down = true;
+    var p = heroXY(e.clientX, e.clientY); drop(p.x, p.y, 20, 260);
+  });
+  hero.addEventListener('mousemove', function(e) {
+    if (!down) return;
+    var p = heroXY(e.clientX, e.clientY); drop(p.x, p.y, 14, 80);
+  });
+  hero.addEventListener('mouseup',    function() { down = false; });
+  hero.addEventListener('mouseleave', function() { down = false; });
+
+  // Touch -- passive everywhere so browser can scroll freely
+  var lastTX = -999, lastTY = -999;
+  hero.addEventListener('touchstart', function(e) {
+    down = true;
+    var t = e.touches[0];
+    var p = heroXY(t.clientX, t.clientY);
+    drop(p.x, p.y, 20, 260);
+    lastTX = t.clientX; lastTY = t.clientY;
+  }, { passive: true });
+  hero.addEventListener('touchmove', function(e) {
+    if (!down) return;
+    var t = e.touches[0];
+    if (Math.hypot(t.clientX-lastTX, t.clientY-lastTY) > 8) {
+      var p = heroXY(t.clientX, t.clientY);
+      drop(p.x, p.y, 14, 80);
+      lastTX = t.clientX; lastTY = t.clientY;
+    }
+  }, { passive: true });
+  hero.addEventListener('touchend',   function() { down = false; }, { passive: true });
+
+  // Boot after first paint so canvas has real dimensions
+  requestAnimationFrame(function() {
+    init();
+    loop(0);
+    setTimeout(function() {
+      var cx = canvas.width/2, cy = canvas.height/2;
+      drop(cx, cy, 30, 300);
+      setTimeout(function() { drop(cx, cy, 20, 200); }, 600);
+    }, 300);
+  });
+
+  window.addEventListener('resize', function() {
+    clearTimeout(window._rt);
+    window._rt = setTimeout(init, 150);
+  });
+
+  //  Nav 
+  var nav = document.getElementById('nav');
+  function checkScroll() { nav.classList.toggle('stuck', window.scrollY > 40); }
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  checkScroll();
+
+  var burger = document.getElementById('burger');
+  var drawer = document.getElementById('drawer');
+  burger.addEventListener('click', function() {
+    var open = drawer.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  drawer.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      drawer.classList.remove('open');
+      burger.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  //  Smooth scroll 
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - nav.offsetHeight, behavior: 'smooth' });
+    });
+  });
+
+  //  Scroll reveal 
+  // All content starts visible -- reveal just adds a nice entrance
+  function revealAll() {
+    document.querySelectorAll('.r').forEach(function(el) { el.classList.add('on'); });
+  }
+
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
+    document.querySelectorAll('.r').forEach(function(el) { obs.observe(el); });
+  } else {
+    revealAll();
+  }
+  // Hard fallback: show everything after 1.5s no matter what
+  setTimeout(revealAll, 1500);
+
+})();
+</script>
+</body>
+</html>
