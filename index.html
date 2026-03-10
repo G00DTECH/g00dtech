@@ -148,7 +148,7 @@ img { display:block; max-width:100%; }
 .svc-card::after { content:""; position:absolute; top:0; left:0; right:0; height:2px; background:transparent; transition:background .3s ease; }
 .svc-card:hover { background:var(--bg-card-h); }
 .svc-card:hover::after { background:linear-gradient(to right,var(--blue),var(--blue-hi)); }
-.svc-num { font-family:var(--mono); font-size:.62rem; letter-spacing:.15em; color:rgba(56,182,255,.5); }
+.svc-num { font-family:var(--mono); font-size:.62rem; letter-spacing:.15em; color:rgba(56,182,255,.7); }
 .svc-icon { width:40px; height:40px; color:var(--blue); }
 .svc-title { font-family:var(--outfit); font-size:1.3rem; font-weight:900; letter-spacing:-.02em; color:var(--white); line-height:1.2; }
 .svc-desc { font-size:.85rem; line-height:1.8; color:var(--muted); flex:1; }
@@ -163,7 +163,7 @@ img { display:block; max-width:100%; }
 .work-card.featured { grid-column:span 2; display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center; }
 .work-card:hover { background:var(--bg-card-h); }
 .work-card::before { content:""; position:absolute; inset:0; background:linear-gradient(135deg,rgba(56,182,255,.03) 0%,transparent 60%); pointer-events:none; }
-.work-tag { font-family:var(--mono); font-size:.6rem; letter-spacing:.15em; text-transform:uppercase; color:rgba(56,182,255,.6); }
+.work-tag { font-family:var(--mono); font-size:.6rem; letter-spacing:.15em; text-transform:uppercase; color:rgba(56,182,255,.85); }
 .work-title { font-family:var(--outfit); font-size:clamp(1.2rem,2.5vw,1.8rem); font-weight:900; letter-spacing:-.02em; color:var(--white); line-height:1.15; }
 .work-desc { font-size:.85rem; line-height:1.8; color:var(--muted); flex:1; }
 .work-results { display:flex; flex-direction:column; gap:.6rem; padding-top:1rem; border-top:1px solid var(--border); }
@@ -237,7 +237,7 @@ img { display:block; max-width:100%; }
 .contact-hl { font-family:var(--outfit); font-size:clamp(2.5rem,7vw,6rem); font-weight:900; line-height:1.05; letter-spacing:-.03em; margin-bottom:1.5rem; }
 .contact-hl em { font-style:italic; color:var(--blue); }
 .contact-sub { font-size:clamp(.9rem,1.8vw,1rem); line-height:1.8; color:var(--muted); max-width:480px; margin:0 auto 2.8rem; }
-.contact-email { display:block; font-family:var(--mono); font-size:clamp(.78rem,1.8vw,.95rem); letter-spacing:.08em; color:rgba(56,182,255,.6); margin-bottom:2.8rem; transition:color .2s ease; }
+.contact-email { display:block; font-family:var(--mono); font-size:clamp(.78rem,1.8vw,.95rem); letter-spacing:.08em; color:rgba(56,182,255,.85); margin-bottom:2.8rem; transition:color .2s ease; }
 .contact-email:hover { color:var(--blue); }
 .contact-actions { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
 
@@ -326,7 +326,7 @@ a:focus-visible, button:focus-visible {
 
 <!-- NAV -->
 <header class="nav" id="nav">
-  <a href="#" class="nav-logo">G<span class="nz">00</span>D<span class="ndim">tech</span></a>
+  <a href="/" class="nav-logo">G<span class="nz">00</span>D<span class="ndim">tech</span></a>
   <nav class="nav-links">
     <a href="#services" class="nav-link">Services</a>
     <a href="#work"     class="nav-link">Work</a>
@@ -370,7 +370,7 @@ a:focus-visible, button:focus-visible {
       <a href="#contact" class="btn btn-ghost">Start a project</a>
     </div>
   </div>
-  <div class="hero-coords">
+  <div class="hero-coords" aria-hidden="true">
     <span id="cx">x: 0000</span>
     <span id="cy">y: 0000</span>
   </div>
